@@ -1,0 +1,136 @@
+:root {
+    --primary-color: #2C3E50;
+    --secondary-color: #18BC9C;
+    --background-color: #1A1A2E;
+    --card-bg: #2C2C54;
+    --text-color: #ECF0F1;
+    --button-bg: #18BC9C;
+    --button-hover-bg: #16A085;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --gradient-bg: linear-gradient(135deg, #18BC9C, #2C3E50);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1.5s ease-in;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(44, 62, 80, 0.6) 20%, rgba(26, 26, 46, 1) 100%);
+    z-index: -1;
+}
+
+canvas.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    background: var(--gradient-bg);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    text-align: center;
+    animation: float 3s infinite ease-in-out;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+main {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#intro p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-weight: 300;
+}
+
+#intro div {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+#intro button {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    animation: pulse 2s infinite;
+}
+
+#intro button:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--secondary-color);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+

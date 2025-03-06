@@ -1,0 +1,103 @@
+
+:root {
+    --primary-color: #1E2A38;
+    --secondary-color: #4CAF50;
+    --background-color: #121212;
+    --card-bg: #1F2937;
+    --text-color: #FFFFFF;
+    --button-bg: #4CAF50;
+    --button-hover-bg: #388E3C;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --gradient-bg: linear-gradient(135deg, #4CAF50, #1E2A38);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    color: white;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+#budgetForm {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 600px;
+    animation: slideUp 1s ease-out;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button[type="submit"] {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background: var(--button-hover-bg);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--secondary-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}

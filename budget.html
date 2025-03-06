@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>Budget Planner - Finance Management System</title>
+    <link rel="stylesheet" href="budget.css">
+</head>
+<body>
+    <header>
+        <h1>Budget Planner</h1>
+        <a href="dashboard.html">Back to Dashboard</a>
+    </header>
+    <main>
+        <section id="budget-form">
+            <h2>Set Your Monthly Budgets</h2>
+            <form id="budgetForm">
+                <label for="food">Food:</label>
+                <input type="number" id="food" name="food" min="0" required>
+
+                <label for="rent">Rent:</label>
+                <input type="number" id="rent" name="rent" min="0" required>
+
+                <label for="transport">Transport:</label>
+                <input type="number" id="transport" name="transport" min="0" required>
+
+                <label for="utilities">Utilities:</label>
+                <input type="number" id="utilities" name="utilities" min="0" required>
+
+                <label for="entertainment">Entertainment:</label>
+                <input type="number" id="entertainment" name="entertainment" min="0" required>
+
+                <button type="submit">Save Budgets</button>
+            </form>
+        </section>
+
+        <section id="budget-overview">
+            <h2>Budget Overview</h2>
+            <ul id="budgetList">
+            </ul>
+        </section>
+    </main>
+    <script>
+        document.getElementById('budgetForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const budgets = {
+                food: parseFloat(document.getElementById('food').value) || 0,
+                rent: parseFloat(document.getElementById('rent').value) || 0,
+                transport: parseFloat(document.getElementById('transport').value) || 0,
+                utilities: parseFloat(document.getElementById('utilities').value) || 0,
+                entertainment: parseFloat(document.getElementById('entertainment').value) || 0
+            };
+
+            localStorage.setItem('budgets', JSON.stringify(budgets));
+            displayBudgets();
+        });
+
+        function displayBudgets() {
+            const budgets = JSON.parse(localStorage.getItem('budgets')) || {};
+            const budgetList = document.getElementById('budgetList');
+            budgetList.innerHTML = '';
+
+            for (const [category, amount] of Object.entries(budgets)) {
+                budgetList.innerHTML += `<li><strong>${category}:</strong> $${amount.toFixed(2)}</li>`;
+            }
+        }
+
+        window.onload = displayBudgets;
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+<html >
+<head>
+    <title>Login - Finance Management System</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <header>
+        <h1>Login to Your Account</h1>
+    </header>
+    <main>
+        <section id="login">
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+                <p id="errorMessage" style="color: red; display: none;">Invalid username or password</p>
+            </form>
+        </section>
+    </main>
+    <script src="login.js"></script>
+</body>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const storedUser = localStorage.getItem(username);
+
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                if (user.password === password) {
+                    alert('Login successful!');
+                    window.location.href = 'dashboard.html';
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                }
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

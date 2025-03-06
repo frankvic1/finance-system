@@ -1,0 +1,112 @@
+
+:root {
+    --primary-color: #1A1A40;
+    --secondary-color: #FF4C60;
+    --background-color: #10101A;
+    --card-bg: #2C2C54;
+    --text-color: #ECF0F1;
+    --button-bg: #FF4C60;
+    --button-hover-bg: #E04355;
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --gradient-bg: linear-gradient(135deg, #FF4C60, #1A1A40);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    perspective: 1000px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    transform: translateZ(50px);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: white;
+    background: var(--gradient-bg);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transform: translateZ(50px);
+}
+
+#loginForm {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    width: 100%;
+    max-width: 500px;
+    animation: slideUp 1s ease-out;
+    transform-style: preserve-3d;
+    transform: rotateX(10deg) rotateY(10deg);
+    transition: transform 0.5s ease;
+}
+
+#loginForm:hover {
+    transform: rotateX(0deg) rotateY(0deg) scale(1.05);
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    transform: translateZ(20px);
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    transform: translateZ(20px);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button[type="submit"] {
+    background: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px var(--secondary-color);
+    transform: translateZ(30px);
+}
+
+button[type="submit"]:hover {
+    background: var(--button-hover-bg);
+    transform: translateZ(50px) scale(1.1);
+    box-shadow: 0 10px 25px var(--secondary-color);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Sign Up - Finance Management System</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <header>
+        <h1>Create Your Account</h1>
+    </header>
+    <main>
+        <section id="signup">
+            <form id="signupForm">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+    </main>
+    <script src="wave.js"></script>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            const user = { fullName, email, username, password };
+            localStorage.setItem(username, JSON.stringify(user));
+            alert('Account created successfully!');
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>
