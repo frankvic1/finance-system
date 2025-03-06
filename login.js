@@ -19,7 +19,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     if (users[username].password === password) {
         sessionStorage.setItem('currentUser', username);
         alert('Login successful!');
-        window.location.href = 'dashboard.html';
+        window.location.href = 'Dashboard.html';
     } else {
         alert('Invalid username or password.');
     }
